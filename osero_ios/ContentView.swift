@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var baseBoard = "baseBoard"
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Image("baseBoard")
     }
 }
 
