@@ -9,10 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var baseBoard = "baseBoard"
+//    @State var baseBoard = "baseBoard"
     
     var body: some View {
-        Image("baseBoard")
+//        Image("baseBoard")
+        ZStack {
+            Color.green
+                .ignoresSafeArea()
+            Rectangle()
+                .fill(Color(red: 0.4, green: 0.5, blue: 0.1, opacity: 100))
+                .frame(width: 300, height: 300)
+        }
     }
 }
 
