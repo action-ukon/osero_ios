@@ -8,22 +8,102 @@
 import SwiftUI
 
 struct cellView: View {
+    fileprivate func extractedFunc() -> some View {
+        return Image("baseBoard")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
+    fileprivate func blackStoneFunc() -> some View {
+        return Image("blackStone")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
+    fileprivate func whiteStoneFunc() -> some View {
+        return Image("whiteStone")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
     var body: some View {
         VStack(spacing: 0) {
-            ForEach((1...8),id: \.self) { num in
-                HStack(spacing: 0) {
-                    ForEach((1...8),id: \.self) { num in
-                        Image("baseBoard")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-//                        Image("blackStone")
-//                            .resizable()
-//                            .frame(width: 40, height: 40)
-//                        Image("whiteStone")
-//                            .resizable()
-//                            .frame(width: 40, height: 40)
-                    }
-                }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                whiteStoneFunc()
+                blackStoneFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                blackStoneFunc()
+                whiteStoneFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+            }
+            HStack(spacing: 0) {
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
+                extractedFunc()
             }
         }
     }
