@@ -9,8 +9,24 @@ import SwiftUI
 
 struct arryBoard: View {
     var body: some View {
-        var testarray1: [String] = ["c", "a", "d", "b", "e", "f"]
-        Text(testarray1[1])
+        let board: [[Int]] = [
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0]
+        ]
+        VStack{
+            if(board[0][0] == 0){
+                Image("baseBoard")
+            }
+            if(board[0][0] == 0){
+                Image("baseBoard")
+            }
+        }
     }
 }
 
