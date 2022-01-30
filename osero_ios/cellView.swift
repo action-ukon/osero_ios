@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct cellView: View {
-    fileprivate func noStoneFunc() -> some View {
+    func noStoneFunc() -> some View {
         return Image("baseBoard")
             .resizable()
             .frame(width: 40, height: 40)
     }
-    fileprivate func blackStoneFunc() -> some View {
+    func blackStoneFunc() -> some View {
         return Image("blackStone")
             .resizable()
             .frame(width: 40, height: 40)
