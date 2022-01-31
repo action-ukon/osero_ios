@@ -9,25 +9,36 @@ import SwiftUI
 
 struct arryBoard: View {
     @State var buttonCell = cellView()
+    
     var body: some View {
         let board: [[Int]] = [
-            [0,0,0,1,0,0,0,0],
+            [0,0,0,1,0,2,0,0],
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0],
+            [0,0,0,0,1,0,0,0],
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0]
         ]
-        HStack{
-            ForEach(0..<8) { i in
-                if(board[0][i] == 0){
-                    buttonCell.noStoneFunc()
-                } else {
-                    buttonCell.blackStoneFunc()
+        //TODO:押したところ1にする
+        
+        // 今のボードの処理
+        VStack{
+            ForEach(0..<8) { n in
+                HStack{
+                    ForEach(0..<8) { i in
+                        if(board[n][i] == 0){
+                            buttonCell.noStoneFunc()
+                        } else if(board[n][i] == 1){
+                            buttonCell.blackStoneFunc()
+                        } else if(board[n][i] == 2){
+                            buttonCell.whiteStoneFunc()
+                        }
+                    }
                 }
-            } }
+            }
+        }
         
     }
 }

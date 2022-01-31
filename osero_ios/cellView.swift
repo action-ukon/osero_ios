@@ -18,7 +18,7 @@ struct cellView: View {
             .resizable()
             .frame(width: 40, height: 40)
     }
-    fileprivate func whiteStoneFunc() -> some View {
+    func whiteStoneFunc() -> some View {
         return Image("whiteStone")
             .resizable()
             .frame(width: 40, height: 40)
