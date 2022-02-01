@@ -9,7 +9,7 @@ import SwiftUI
 
 struct arryBoard: View {
     @State var buttonCell = cellView()
-    
+    @State var turn: Int = 1
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
@@ -29,7 +29,8 @@ struct arryBoard: View {
                     ForEach(0..<8) { i in
                         if(board[n][i] == 0){
                             Button(action: {
-                                board[n][i] = 1
+                                board[n][i] = turn
+                                turn = 3 - turn
                             }){
                                 buttonCell.noStoneFunc()
                             }
