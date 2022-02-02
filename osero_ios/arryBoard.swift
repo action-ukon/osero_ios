@@ -20,6 +20,17 @@ struct arryBoard: View {
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
     ]
+    @State var directions = [
+        [0, 1],
+        [1, 1],
+        [1, 0],
+        [1, -1],
+        [0, -1],
+        [-1, -1],
+        [-1, 0],
+        [-1, 1]
+    ]
+    
     var body: some View {
 
         // 今のボードの処理
@@ -30,6 +41,10 @@ struct arryBoard: View {
                         if(board[n][i] == 0){
                             Button(action: {
                                 board[n][i] = turn
+                                //TODO:ベクトル飛ばす
+                                ForEach(0..<8) { m in
+                                    
+                                }
                                 turn = 3 - turn
                             }){
                                 buttonCell.noStoneFunc()
