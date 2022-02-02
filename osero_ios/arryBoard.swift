@@ -20,7 +20,7 @@ struct arryBoard: View {
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
     ]
-    @State var directions = [
+    @State var directions: [[Int]] = [
         [0, 1],
         [1, 1],
         [1, 0],
@@ -43,8 +43,10 @@ struct arryBoard: View {
                                 board[n][i] = turn
                                 //TODO:ベクトル飛ばす
                                 ForEach(0..<8) { m in
-                                    
+                                    var boardX: Int = i + directions[m][0]
+                                    var boardY: Int = n + directions[m][1]
                                 }
+                                //
                                 turn = 3 - turn
                             }){
                                 buttonCell.noStoneFunc()
