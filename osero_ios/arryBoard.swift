@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct arryBoard: View {
     @State var buttonCell = cellView()
@@ -32,7 +33,7 @@ struct arryBoard: View {
     ]
     
     var body: some View {
-
+        
         // 今のボードの処理
         VStack{
             ForEach(0..<8) { n in
@@ -42,19 +43,27 @@ struct arryBoard: View {
                             Button(action: {
                                 board[n][i] = turn
                                 //TODO:ベクトル飛ばす
-
                                 for m in 0..<8 {
-                                    let boardX: Int = i + directions[m][0]
-                                    let boardY: Int = n + directions[m][1]
-                                    if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX){
-                                        break
-                                    }
-//                                    if(board[boardY][boardX] == 0 || board[boardY][boardX] == turn){
-//                                        break
-//                                    }
-                                    if(board[boardY][boardX] != turn && board[boardY][boardX] != 0){
-//                                        let turnable = (x: boardX, y: boardY)
-                                        board[boardY][boardX] = turn
+                                    var allturnable:[(x:Int,y:Int)] = []
+                                    for temp in 1..<8{
+                                        let boardX: Int = i + temp * directions[m][0]
+                                        let boardY: Int = n + temp * directions[m][1]
+                                        if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX){
+                                            break
+                                        }
+                                        if(board[boardY][boardX] == 0 || board[boardY][boardX] == turn){
+                                            break
+                                        }
+                                        else if(board[boardY][boardX] != turn){
+                                            let turnable = (x: boardX, y: boardY)
+                                            allturnable.append(turnable)
+                                        }
+                                        else if(board[boardY][boardX] == turn){
+                                            // let turnable = (x: boardX, y: boardY)
+                                            for t in 0..<(allturnable.count){
+                                                board[allturnable[t].y][allturnable[t].x] = turn
+                                            }
+                                        }
                                     }
                                 }
                                 //
