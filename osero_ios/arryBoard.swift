@@ -31,8 +31,6 @@ struct arryBoard: View {
         [-1, 1]
     ]
     
-//    @State var turnWill: [[Int]]
-    
     var body: some View {
 
         // 今のボードの処理
@@ -44,17 +42,20 @@ struct arryBoard: View {
                             Button(action: {
                                 board[n][i] = turn
                                 //TODO:ベクトル飛ばす
+
                                 for m in 0..<8 {
-                                    var boardX: Int = i + directions[m][0]
-                                    var boardY: Int = n + directions[m][1]
+                                    let boardX: Int = i + directions[m][0]
+                                    let boardY: Int = n + directions[m][1]
                                     if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX){
                                         break
                                     }
-                                    if(board[boardY][boardX] == 0 || board[boardY][boardX] == turn){
-                                        break
+//                                    if(board[boardY][boardX] == 0 || board[boardY][boardX] == turn){
+//                                        break
+//                                    }
+                                    if(board[boardY][boardX] != turn && board[boardY][boardX] != 0){
+//                                        let turnable = (x: boardX, y: boardY)
+                                        board[boardY][boardX] = turn
                                     }
-
-                                    board[0][0] = 2
                                 }
                                 //
                                 turn = 3 - turn
