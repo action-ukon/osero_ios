@@ -9,7 +9,22 @@ import SwiftUI
 import Foundation
 
 struct arryBoard: View {
-    @State var buttonCell = cellView()
+    func noStoneFunc() -> some View {
+        return Image("baseBoard")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
+    func blackStoneFunc() -> some View {
+        return Image("blackStone")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
+    func whiteStoneFunc() -> some View {
+        return Image("whiteStone")
+            .resizable()
+            .frame(width: 40, height: 40)
+    }
+//    @State var buttonCell = cellView()
     @State var turn: Int = 1
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
@@ -73,12 +88,12 @@ struct arryBoard: View {
                                 }
                                
                             }){
-                                buttonCell.noStoneFunc()
+                                noStoneFunc()
                             }
                         } else if(board[n][i] == 1){
-                            buttonCell.blackStoneFunc()
+                            blackStoneFunc()
                         } else if(board[n][i] == 2){
-                            buttonCell.whiteStoneFunc()
+                            whiteStoneFunc()
                         }
                     }
                 }

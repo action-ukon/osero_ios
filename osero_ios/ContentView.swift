@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var buttonCell = cellView()
     @State var ArryBoard = arryBoard()
     
     var body: some View {

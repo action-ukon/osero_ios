@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1034D08279031A50092EF35 /* cellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1034D07279031A50092EF35 /* cellView.swift */; };
 		E162D0CB27A58E8100707369 /* arryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162D0CA27A58E8100707369 /* arryBoard.swift */; };
 		E1CBBF00278F11AF008E3002 /* osero_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */; };
 		E1CBBF02278F11AF008E3002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBBF01278F11AF008E3002 /* ContentView.swift */; };
@@ -16,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E1034D07279031A50092EF35 /* cellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellView.swift; sourceTree = "<group>"; };
 		E162D0CA27A58E8100707369 /* arryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arryBoard.swift; sourceTree = "<group>"; };
 		E1CBBEFC278F11AF008E3002 /* osero_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = osero_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osero_iosApp.swift; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			children = (
 				E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */,
 				E1CBBF01278F11AF008E3002 /* ContentView.swift */,
-				E1034D07279031A50092EF35 /* cellView.swift */,
 				E162D0CA27A58E8100707369 /* arryBoard.swift */,
 				E1CBBF03278F11B1008E3002 /* Assets.xcassets */,
 				E1CBBF05278F11B1008E3002 /* Preview Content */,
@@ -145,7 +142,6 @@
 			files = (
 				E162D0CB27A58E8100707369 /* arryBoard.swift in Sources */,
 				E1CBBF02278F11AF008E3002 /* ContentView.swift in Sources */,
-				E1034D08279031A50092EF35 /* cellView.swift in Sources */,
 				E1CBBF00278F11AF008E3002 /* osero_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
