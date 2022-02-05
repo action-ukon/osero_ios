@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var buttonCell = cellView()
+    @State var ArryBoard = arryBoard()
     
     var body: some View {
         ZStack {
@@ -20,7 +21,7 @@ struct ContentView: View {
                 .frame(width: 320, height: 320)
                 .border(Color.black, width: 1)
             
-                buttonCell
+            ArryBoard
         }
     }
 }
