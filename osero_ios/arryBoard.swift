@@ -32,8 +32,9 @@ struct arryBoard: View {
         [-1, 1]
     ]
     
+    
     var body: some View {
- 
+        
         // 今のボードの処理
         VStack(spacing: 0){
             ForEach(0..<8) { n in
@@ -41,7 +42,6 @@ struct arryBoard: View {
                     ForEach(0..<8) { i in
                         if(board[n][i] == 0){
                             Button(action: {
-                                board[n][i] = turn
                                 //TODO:ベクトル飛ばす
                                 for m in 0..<8 {
                                     var allturnable:[[String:Int]] = [[:]]
@@ -60,12 +60,18 @@ struct arryBoard: View {
                                             for t in 1..<(allturnable.count){
                                                 board[allturnable[t]["y"]!][allturnable[t]["x"]!] = turn
                                             }
-                                        break
+                                            if(allturnable.count > 1){
+                                                board[n][i] = turn
+                                            }
+                                            break
                                         }
                                     }
                                 }
                                 //
-                                turn = 3 - turn
+                                if(board[n][i] == turn){
+                                    turn = 3 - turn
+                                }
+                               
                             }){
                                 buttonCell.noStoneFunc()
                             }
