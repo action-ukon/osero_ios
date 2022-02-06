@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct arryBoard: View {
+struct arryBoard2: View {
     func noStoneFunc() -> some View {
         return Image("baseBoard")
             .resizable()
@@ -34,10 +34,10 @@ struct arryBoard: View {
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0],
-        [0,0,0,2,1,0,0,0],
-        [0,0,0,1,2,0,0,0],
-        [0,0,0,0,0,0,0,0],
+        [0,0,0,3,0,0,0,0],
+        [0,0,3,2,1,0,0,0],
+        [0,0,0,1,2,3,0,0],
+        [0,0,0,0,3,0,0,0],
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0]
     ]
@@ -61,6 +61,12 @@ struct arryBoard: View {
                     ForEach(0..<8) { i in
                         // オセロロジック部
                         if(board[n][i] == 0){
+                            noStoneFunc()
+                        } else if(board[n][i] == 1){
+                            blackStoneFunc()
+                        } else if(board[n][i] == 2){
+                            whiteStoneFunc()
+                        } else if(board[n][i] == 3){
                             Button(action: {
                                 //TODO:ベクトル飛ばす
                                 for m in 0..<8 {
@@ -68,7 +74,7 @@ struct arryBoard: View {
                                     for temp in 1..<8{
                                         let boardX: Int = i + temp * directions[m][0]
                                         let boardY: Int = n + temp * directions[m][1]
-                                        if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX || board[boardY][boardX] == 0){
+                                        if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX || board[boardY][boardX] == 0 || [boardY][boardX] == 3){
                                             break
                                         }
                                         else if(board[boardY][boardX] != turn){
@@ -87,21 +93,28 @@ struct arryBoard: View {
                                         }
                                     }
                                 }
-                                //
                                 if(board[n][i] == turn){
                                     turn = 3 - turn
+                                    // 3の位置入れ替え
+                                    for yelY in 0..<8{
+                                        for yelX in 0..<8{
+                                            for h in 0..<8{
+                                                for tmp in 1..<8{
+                                                    let vecX: Int = yelX + tmp * directions[h][0]
+                                                    let vecY: Int = yelY + tmp * directions[h][1]
+                                                    if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0 || [vecY][vecX] == 3){
+                                                        break
+                                                    }
+                                                    // TODO:
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
-                                
                             }){
-                                noStoneFunc()
+                                ableStoneFunc()
                             }
-                        } else if(board[n][i] == 1){
-                            blackStoneFunc()
-                        } else if(board[n][i] == 2){
-                            whiteStoneFunc()
-                        }
-                        else if(board[n][i] == 3){
-                            ableStoneFunc()
+                            
                         }
                     }
                 }
@@ -111,8 +124,8 @@ struct arryBoard: View {
     }
 }
 
-struct arryBoard_Previews: PreviewProvider {
+struct arryBoard2_Previews: PreviewProvider {
     static var previews: some View {
-        arryBoard()
+        arryBoard2()
     }
 }
