@@ -74,7 +74,7 @@ struct arryBoard2: View {
                                     for temp in 1..<8{
                                         let boardX: Int = i + temp * directions[m][0]
                                         let boardY: Int = n + temp * directions[m][1]
-                                        if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX || board[boardY][boardX] == 0 || [boardY][boardX] == 3){
+                                        if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX || board[boardY][boardX] == 0 || board[boardY][boardX] == 3){
                                             break
                                         }
                                         else if(board[boardY][boardX] != turn){
@@ -82,7 +82,6 @@ struct arryBoard2: View {
                                             allturnable.append(turnable)
                                         }
                                         else if(board[boardY][boardX] == turn){
-                                            // let turnable = (x: boardX, y: boardY)
                                             for t in 1..<(allturnable.count){
                                                 board[allturnable[t]["y"]!][allturnable[t]["x"]!] = turn
                                             }
@@ -95,17 +94,35 @@ struct arryBoard2: View {
                                 }
                                 if(board[n][i] == turn){
                                     turn = 3 - turn
+                                    // 黄色リセット
+                                    for allBoardY in 0..<8{
+                                        for allBoardX in 0..<8{
+                                            if(board[allBoardY][allBoardX] == 3){
+                                                board[allBoardY][allBoardX] = 0
+                                            }
+                                        }
+                                    }
                                     // 3の位置入れ替え
                                     for yelY in 0..<8{
                                         for yelX in 0..<8{
                                             for h in 0..<8{
+                                                var able:[[String:Int]] = [[:]]
                                                 for tmp in 1..<8{
                                                     let vecX: Int = yelX + tmp * directions[h][0]
                                                     let vecY: Int = yelY + tmp * directions[h][1]
-                                                    if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0 || [vecY][vecX] == 3){
+                                                    if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0){
                                                         break
                                                     }
                                                     // TODO:
+                                                    else if(board[vecY][vecX] != turn){
+                                                        let turnable = ["x": vecX, "y": vecY]
+                                                        able.append(turnable)
+                                                    }else if(board[vecY][vecX] == turn){
+                                                        if(able.count > 1){
+                                                            board[yelY][yelX] = 3
+                                                        }
+                                                        break
+                                                    }
                                                 }
                                             }
                                         }
