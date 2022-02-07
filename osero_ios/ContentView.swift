@@ -23,8 +23,9 @@ struct ContentView: View {
                 
                 ArryBoard2
             }
+            //TODO 動的に受け取るように
+            Text("\(ArryBoard2.turn)")
         }
-        
     }
 }
 

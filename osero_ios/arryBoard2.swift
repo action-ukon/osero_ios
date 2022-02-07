@@ -31,7 +31,7 @@ struct arryBoard2: View {
     }
     
     @State var turn: Int = 1
-
+ 
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
