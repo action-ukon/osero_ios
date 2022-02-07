@@ -31,6 +31,7 @@ struct arryBoard2: View {
     }
     
     @State var turn: Int = 1
+
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
@@ -53,7 +54,6 @@ struct arryBoard2: View {
     ]
     
     var body: some View {
-        
         // 今のボードの処理
         VStack(spacing: 0){
             ForEach(0..<8) { n in
@@ -108,17 +108,17 @@ struct arryBoard2: View {
                                             for h in 0..<8{
                                                 var able:[[String:Int]] = [[:]]
                                                 for tmp in 1..<8{
+                                                    
                                                     let vecX: Int = yelX + tmp * directions[h][0]
                                                     let vecY: Int = yelY + tmp * directions[h][1]
-                                                    if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0){
+                                                    if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0 || board[vecY][vecX] == 3){
                                                         break
                                                     }
-                                                    // TODO:
                                                     else if(board[vecY][vecX] != turn){
                                                         let turnable = ["x": vecX, "y": vecY]
                                                         able.append(turnable)
                                                     }else if(board[vecY][vecX] == turn){
-                                                        if(able.count > 1){
+                                                        if(able.count > 1 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                             board[yelY][yelX] = 3
                                                         }
                                                         break

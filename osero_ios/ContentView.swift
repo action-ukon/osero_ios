@@ -9,18 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     @State var ArryBoard = arryBoard()
+    @State var ArryBoard2 = arryBoard2()
     
     var body: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 320, height: 320)
-                .border(Color.black, width: 1)
-            
-            ArryBoard
+        VStack{
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 320, height: 320)
+                    .border(Color.black, width: 1)
+                
+                ArryBoard2
+            }
         }
+        
     }
 }
 
