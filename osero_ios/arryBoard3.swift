@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct arryBoard2: View {
+struct arryBoard3: View {
     func noStoneFunc() -> some View {
         return Image("baseBoard")
             .resizable()
@@ -140,8 +140,8 @@ struct arryBoard2: View {
     }
 }
 
-struct arryBoard2_Previews: PreviewProvider {
+struct arryBoard3_Previews: PreviewProvider {
     static var previews: some View {
-        arryBoard2()
+        arryBoard3()
     }
 }
