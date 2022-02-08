@@ -14,6 +14,10 @@ struct topView: View {
                 Color.black
                     .ignoresSafeArea()
                 VStack(spacing: -80){
+                    Image("apple")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .offset(x: 0, y: -170)
                     Text("さあ、オセロを始めよう！")
                         .font(.title)
                         .frame(width: 400, height: 40)
@@ -24,8 +28,10 @@ struct topView: View {
                         Text("GO!")
                             .frame(width: 160, height: 48)
                             .foregroundColor(Color(.white))
-                            .background(Color(.blue))
+                            .background(LinearGradient(gradient: Gradient(colors: [.red, .black]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(24)
+//                            .border(Color.white, width: 1)
+                            
                             
                     }
                 }
