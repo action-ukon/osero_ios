@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var turnView = ObservedTurn()
     @State var ArryBoard = arryBoard()
     @State var ArryBoard2 = arryBoard2()
+    @State var ArryBoard3 = arryBoard3()
     
     var body: some View {
+        
         VStack{
             ZStack {
                 Color.black
@@ -20,11 +23,11 @@ struct ContentView: View {
                     .fill(Color.black)
                     .frame(width: 320, height: 320)
                     .border(Color.black, width: 1)
-                
-                ArryBoard2
+                ArryBoard3
             }
             //TODO 動的に受け取るように
-            Text("\(ArryBoard2.turn)")
+            Text("\(turnView.turn)" as String)
+
         }
     }
 }

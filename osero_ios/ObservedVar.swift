@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
 
-class ObservedVar : ObservableObject {
+class ObservedTurn : ObservableObject {
     @Published var turn: Int = 1
 }
  

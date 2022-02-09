@@ -30,7 +30,8 @@ struct arryBoard3: View {
             .frame(width: 40, height: 40)
     }
     
-    @State var turn: Int = 1
+    @ObservedObject var turnView = ObservedTurn()
+    
     @State var board: [[Int]] = [
         [0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0],
@@ -76,23 +77,23 @@ struct arryBoard3: View {
                                         if(boardY < 0 || boardX < 0 || 7 < boardY || 7 < boardX || board[boardY][boardX] == 0 || board[boardY][boardX] == 3){
                                             break
                                         }
-                                        else if(board[boardY][boardX] != turn){
+                                        else if(board[boardY][boardX] != turnView.turn){
                                             let turnable = ["x": boardX, "y": boardY]
                                             allturnable.append(turnable)
                                         }
-                                        else if(board[boardY][boardX] == turn){
+                                        else if(board[boardY][boardX] == turnView.turn){
                                             for t in 1..<(allturnable.count){
-                                                board[allturnable[t]["y"]!][allturnable[t]["x"]!] = turn
+                                                board[allturnable[t]["y"]!][allturnable[t]["x"]!] = turnView.turn
                                             }
                                             if(allturnable.count > 1){
-                                                board[n][i] = turn
+                                                board[n][i] = turnView.turn
                                             }
                                             break
                                         }
                                     }
                                 }
-                                if(board[n][i] == turn){
-                                    turn = 3 - turn
+                                if(board[n][i] == turnView.turn){
+                                    turnView.turn = 3 - turnView.turn
                                     // 黄色リセット
                                     for allBoardY in 0..<8{
                                         for allBoardX in 0..<8{
@@ -113,10 +114,10 @@ struct arryBoard3: View {
                                                     if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0 || board[vecY][vecX] == 3){
                                                         break
                                                     }
-                                                    else if(board[vecY][vecX] != turn){
+                                                    else if(board[vecY][vecX] != turnView.turn){
                                                         let turnable = ["x": vecX, "y": vecY]
                                                         able.append(turnable)
-                                                    }else if(board[vecY][vecX] == turn){
+                                                    }else if(board[vecY][vecX] == turnView.turn){
                                                         if(able.count > 1 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                             board[yelY][yelX] = 3
                                                         }
