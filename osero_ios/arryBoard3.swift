@@ -29,6 +29,7 @@ struct arryBoard3: View {
             .resizable()
             .frame(width: 40, height: 40)
     }
+    @State private var showingAlert = false
     
     @ObservedObject var turnView = ObservedTurn()
     
@@ -102,6 +103,7 @@ struct arryBoard3: View {
                                             }
                                         }
                                     }
+                                    var passArry:[[String:Int]] = [[:]]
                                     // 3の位置入れ替え
                                     for yelY in 0..<8{
                                         for yelX in 0..<8{
@@ -124,7 +126,54 @@ struct arryBoard3: View {
                                                         break
                                                     }
                                                 }
+                                                //passArryは空要素が2つデフォルトである
+                                                passArry += able
                                             }
+                                        }
+                                    }
+                                    //************
+                                    if(passArry.count < 3 ){
+                                        turnView.turn = 3 - turnView.turn
+                                        var passArry:[[String:Int]] = [[:]]
+                                        // 黄色リセット
+                                        for allBoardY in 0..<8{
+                                            for allBoardX in 0..<8{
+                                                if(board[allBoardY][allBoardX] == 3){
+                                                    board[allBoardY][allBoardX] = 0
+                                                }
+                                            }
+                                        }
+                                        // 3の位置入れ替え
+                                        for yelY in 0..<8{
+                                            for yelX in 0..<8{
+                                                for h in 0..<8{
+                                                    var able:[[String:Int]] = [[:]]
+                                                    for tmp in 1..<8{
+                                                        
+                                                        let vecX: Int = yelX + tmp * directions[h][0]
+                                                        let vecY: Int = yelY + tmp * directions[h][1]
+                                                        if(vecY < 0 || vecX < 0 || 7 < vecY || 7 < vecX || board[vecY][vecX] == 0 || board[vecY][vecX] == 3){
+                                                            break
+                                                        }
+                                                        else if(board[vecY][vecX] != turnView.turn){
+                                                            let turnable = ["x": vecX, "y": vecY]
+                                                            able.append(turnable)
+                                                        }else if(board[vecY][vecX] == turnView.turn){
+                                                            if(able.count > 1 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
+                                                                board[yelY][yelX] = 3
+                                                            }
+                                                            break
+                                                        }
+                                                    }
+                                                    //passArryは空要素が2つデフォルトである
+                                                    passArry += able
+                                                }
+                                            }
+                                        }
+                                        //********
+                                        if(passArry.count < 3 ){
+                                            self.showingAlert = true
+                                            //TODO アラート
                                         }
                                     }
                                 }
