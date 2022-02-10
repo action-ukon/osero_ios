@@ -72,7 +72,7 @@ struct arryBoard3: View {
                                 Button(action: {
                                     //TODO:ベクトル飛ばす
                                     for m in 0..<8 {
-                                        var allturnable:[[String:Int]] = [[:]]
+                                        var allturnable:[[String:Int]] = []
                                         for temp in 1..<8{
                                             let boardX: Int = i + temp * directions[m][0]
                                             let boardY: Int = n + temp * directions[m][1]
@@ -84,10 +84,10 @@ struct arryBoard3: View {
                                                 allturnable.append(turnable)
                                             }
                                             else if(board[boardY][boardX] == turnView.turn){
-                                                for t in 1..<(allturnable.count){
+                                                for t in 0..<(allturnable.count){
                                                     board[allturnable[t]["y"]!][allturnable[t]["x"]!] = turnView.turn
                                                 }
-                                                if(allturnable.count > 1){
+                                                if(allturnable.count > 0){
                                                     board[n][i] = turnView.turn
                                                 }
                                                 break
@@ -104,12 +104,12 @@ struct arryBoard3: View {
                                                 }
                                             }
                                         }
-                                        var passArry:[[String:Int]] = [[:]]
+                                        var passArry:[[String:Int]] = []
                                         // 3の位置入れ替え
                                         for yelY in 0..<8{
                                             for yelX in 0..<8{
                                                 for h in 0..<8{
-                                                    var able:[[String:Int]] = [[:]]
+                                                    var able:[[String:Int]] = []
                                                     for tmp in 1..<8{
                                                         
                                                         let vecX: Int = yelX + tmp * directions[h][0]
@@ -121,7 +121,7 @@ struct arryBoard3: View {
                                                             let turnable = ["x": vecX, "y": vecY]
                                                             able.append(turnable)
                                                         }else if(board[vecY][vecX] == turnView.turn){
-                                                            if(able.count > 1 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
+                                                            if(able.count > 0 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                                 board[yelY][yelX] = 3
                                                             }
                                                             break
@@ -133,9 +133,9 @@ struct arryBoard3: View {
                                             }
                                         }
                                         //************
-                                        if(passArry.count < 3 ){
+                                        if(passArry.count < 1 ){
                                             turnView.turn = 3 - turnView.turn
-                                            var passArry:[[String:Int]] = [[:]]
+                                            var passArry:[[String:Int]] = []
                                             // 黄色リセット
                                             for allBoardY in 0..<8{
                                                 for allBoardX in 0..<8{
@@ -148,7 +148,7 @@ struct arryBoard3: View {
                                             for yelY in 0..<8{
                                                 for yelX in 0..<8{
                                                     for h in 0..<8{
-                                                        var able:[[String:Int]] = [[:]]
+                                                        var able:[[String:Int]] = []
                                                         for tmp in 1..<8{
                                                             
                                                             let vecX: Int = yelX + tmp * directions[h][0]
@@ -160,7 +160,7 @@ struct arryBoard3: View {
                                                                 let turnable = ["x": vecX, "y": vecY]
                                                                 able.append(turnable)
                                                             }else if(board[vecY][vecX] == turnView.turn){
-                                                                if(able.count > 1 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
+                                                                if(able.count > 0 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                                     board[yelY][yelX] = 3
                                                                 }
                                                                 break
@@ -172,7 +172,7 @@ struct arryBoard3: View {
                                                 }
                                             }
                                             //********
-                                            if(passArry.count < 3 ){
+                                            if(passArry.count < 1 ){
                                                 self.showingAlert = true
                                                 //TODO アラート
                                             }

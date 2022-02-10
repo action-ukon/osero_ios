@@ -30,9 +30,7 @@ struct topView: View {
                             .foregroundColor(Color(.white))
                             .background(LinearGradient(gradient: Gradient(colors: [.red, .black]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(24)
-//                            .border(Color.white, width: 1)
-                            
-                            
+
                     }
                 }
                 
