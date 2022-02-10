@@ -54,6 +54,8 @@ struct arryBoard3: View {
         [-1, 1]
     ]
     
+    @State var passArry:[[String:Int]] = []
+    
     var body: some View {
         VStack{
             // 今のボードの処理
@@ -104,12 +106,13 @@ struct arryBoard3: View {
                                                 }
                                             }
                                         }
-                                        var passArry:[[String:Int]] = []
+                                        passArry = []
                                         // 3の位置入れ替え
                                         for yelY in 0..<8{
                                             for yelX in 0..<8{
                                                 for h in 0..<8{
                                                     var able:[[String:Int]] = []
+                                                    var passable:[[String:Int]] = []
                                                     for tmp in 1..<8{
                                                         
                                                         let vecX: Int = yelX + tmp * directions[h][0]
@@ -123,19 +126,20 @@ struct arryBoard3: View {
                                                         }else if(board[vecY][vecX] == turnView.turn){
                                                             if(able.count > 0 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                                 board[yelY][yelX] = 3
+                                                                let prePassable = ["x": vecX, "y": vecY]
+                                                                passable.append(prePassable)
                                                             }
                                                             break
                                                         }
                                                     }
-                                                    //passArryは空要素が2つデフォルトである
-                                                    passArry += able
+                                                    passArry += passable
                                                 }
                                             }
                                         }
                                         //************
-                                        if(passArry.count < 1 ){
+                                        if(passArry.count < 1){
                                             turnView.turn = 3 - turnView.turn
-                                            var passArry:[[String:Int]] = []
+                                            passArry = []
                                             // 黄色リセット
                                             for allBoardY in 0..<8{
                                                 for allBoardX in 0..<8{
@@ -149,6 +153,8 @@ struct arryBoard3: View {
                                                 for yelX in 0..<8{
                                                     for h in 0..<8{
                                                         var able:[[String:Int]] = []
+                                                        var passable:[[String:Int]] = []
+                                                        
                                                         for tmp in 1..<8{
                                                             
                                                             let vecX: Int = yelX + tmp * directions[h][0]
@@ -162,12 +168,14 @@ struct arryBoard3: View {
                                                             }else if(board[vecY][vecX] == turnView.turn){
                                                                 if(able.count > 0 && (board[yelY][yelX] == 0 || board[yelY][yelX] == 3)){
                                                                     board[yelY][yelX] = 3
+                                                                    let prePassable = ["x": vecX, "y": vecY]
+                                                                    passable.append(prePassable)
                                                                 }
                                                                 break
                                                             }
                                                         }
                                                         //passArryは空要素が2つデフォルトである
-                                                        passArry += able
+                                                        passArry += passable
                                                     }
                                                 }
                                             }
