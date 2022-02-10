@@ -25,9 +25,6 @@ struct ContentView: View {
                     .border(Color.black, width: 1)
                 ArryBoard3
             }
-            //TODO 動的に受け取るように
-            Text("\(turnView.turn)" as String)
-
         }
     }
 }
