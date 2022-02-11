@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct topView: View {
-    
-    @ObservedObject var turnView = ObservedTurn()
 
     var body: some View {
         NavigationView {
