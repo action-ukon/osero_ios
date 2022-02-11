@@ -181,10 +181,6 @@ struct arryBoard3: View {
                                                     }
                                                 }
                                             }
-                                            //********
-//                                            if(passArry.count < 1 ){
-//                                                self.showingAlert = true
-//                                            }
                                         }
                                     }
                                     if(passArry.count < 1 ){
