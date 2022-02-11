@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct topView: View {
+    
+    @ObservedObject var turnView = ObservedTurn()
+
     var body: some View {
         NavigationView {
             ZStack{
                 Color.black
                     .ignoresSafeArea()
+                
                 VStack(spacing: -80){
                     Image("apple")
                         .resizable()
                         .frame(width: 100, height: 100)
                         .offset(x: 0, y: -170)
+                    
                     Text("さあ、オセロを始めよう！")
                         .font(.title)
                         .frame(width: 400, height: 40)
@@ -30,7 +35,7 @@ struct topView: View {
                             .foregroundColor(Color(.white))
                             .background(LinearGradient(gradient: Gradient(colors: [.red, .black]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(24)
-
+                        
                     }
                 }
                 

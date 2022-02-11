@@ -57,6 +57,7 @@ struct arryBoard3: View {
     @State var passArry:[[String:Int]] = []
     
     var body: some View {
+        
         VStack{
             // 今のボードの処理
             VStack(spacing: 0){
@@ -72,6 +73,7 @@ struct arryBoard3: View {
                                 whiteStoneFunc()
                             } else if(board[n][i] == 3){
                                 Button(action: {
+                                    passArry = []
                                     //TODO:ベクトル飛ばす
                                     for m in 0..<8 {
                                         var allturnable:[[String:Int]] = []
@@ -96,6 +98,7 @@ struct arryBoard3: View {
                                             }
                                         }
                                     }
+                                    
                                     if(board[n][i] == turnView.turn){
                                         turnView.turn = 3 - turnView.turn
                                         // 黄色リセット
@@ -106,7 +109,7 @@ struct arryBoard3: View {
                                                 }
                                             }
                                         }
-                                        passArry = []
+                                        
                                         // 3の位置入れ替え
                                         for yelY in 0..<8{
                                             for yelX in 0..<8{
@@ -138,8 +141,8 @@ struct arryBoard3: View {
                                         }
                                         //************
                                         if(passArry.count < 1){
-                                            turnView.turn = 3 - turnView.turn
                                             passArry = []
+                                            turnView.turn = 3 - turnView.turn
                                             // 黄色リセット
                                             for allBoardY in 0..<8{
                                                 for allBoardX in 0..<8{
@@ -174,24 +177,27 @@ struct arryBoard3: View {
                                                                 break
                                                             }
                                                         }
-                                                        //passArryは空要素が2つデフォルトである
                                                         passArry += passable
                                                     }
                                                 }
                                             }
                                             //********
-                                            if(passArry.count < 1 ){
-                                                self.showingAlert = true
-                                                //TODO アラート
-                                            }
+//                                            if(passArry.count < 1 ){
+//                                                self.showingAlert = true
+//                                            }
                                         }
                                     }
-                                    
-                                }){
+                                    if(passArry.count < 1 ){
+                                        self.showingAlert = true
+                                    }
+                                })
+                                {
                                     ableStoneFunc()
                                 }
                                 
                             }
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text("勝負アリ"))
                         }
                     }
                 }
@@ -203,7 +209,6 @@ struct arryBoard3: View {
                 Text("白の番です")
                     .foregroundColor(Color.white)
             }
-            
         }
     }
 }
