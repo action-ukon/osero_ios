@@ -56,6 +56,8 @@ struct arryBoard3: View {
     
     @State var passArry:[[String:Int]] = []
     
+    @State var result:String = ""
+    
     var body: some View {
         
         VStack{
@@ -185,6 +187,25 @@ struct arryBoard3: View {
                                     }
                                     if(passArry.count < 1 ){
                                         self.showingAlert = true
+                                        var blackCnt = 0
+                                        var whiteCnt = 0
+                                        for i in 0..<8 {
+                                            for n in 0..<8 {
+                                                if(board[i][n] == 1){
+                                                    blackCnt += 1
+                                                }
+                                                if(board[i][n] == 2){
+                                                    whiteCnt += 1
+                                                }
+                                            }
+                                        }
+                                        if(blackCnt > whiteCnt){
+                                            result = "blsck winner"
+                                        }else if(whiteCnt > blackCnt){
+                                            result = "white winner"
+                                        }else{
+                                            result = "draw"
+                                        }
                                     }
                                 })
                                 {
@@ -194,7 +215,7 @@ struct arryBoard3: View {
                             }
                             //viewができた後↓
                         }.alert(isPresented: $showingAlert) {
-                            Alert(title: Text("勝負アリ"))
+                            Alert(title: Text("\(result)"))
                         }
                     }
                 }
