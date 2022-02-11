@@ -220,14 +220,34 @@ struct arryBoard3: View {
                     }
                 }
             }
-            if(turn == 1){
-                Text("black turn")
-                    .foregroundColor(Color.white)
-                    .offset(x: 0, y: 50)
-            }else{
-                Text("white turn")
-                    .foregroundColor(Color.white)
-                    .offset(x: 0, y: 50)
+
+            HStack{
+                VStack{
+                    Image("blackStone")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
+                        .offset(x: 15, y: 0)
+                    Image("whiteStone")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
+                        .offset(x: 15, y: -30)
+                }
+                VStack{
+                    if(turn == 1){
+                        Text("←")
+                            .padding()
+                            .foregroundColor(Color.white)
+                            .offset(x: -10, y: -30)
+                    }
+                    if(turn == 2){
+                        Text("←")
+                            .padding()
+                            .foregroundColor(Color.white)
+                            .offset(x: -10, y: 0)
+                    }
+                }
             }
         }
     }
