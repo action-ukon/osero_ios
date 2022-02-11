@@ -37,6 +37,7 @@ struct topView: View {
                             .cornerRadius(24)
                         
                     }
+                    
                 }
                 
             }

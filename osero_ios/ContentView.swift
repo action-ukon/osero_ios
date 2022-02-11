@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var turnView = ObservedTurn()
     @State var ArryBoard = arryBoard()
     @State var ArryBoard2 = arryBoard2()
     @State var ArryBoard3 = arryBoard3()
