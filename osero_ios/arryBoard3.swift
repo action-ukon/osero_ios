@@ -223,9 +223,11 @@ struct arryBoard3: View {
             if(turnView.turn == 1){
                 Text("黒の番です")
                     .foregroundColor(Color.white)
+                    .offset(x: 0, y: 50)
             }else{
                 Text("白の番です")
                     .foregroundColor(Color.white)
+                    .offset(x: 0, y: 50)
             }
         }
     }

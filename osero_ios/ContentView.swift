@@ -24,6 +24,7 @@ struct ContentView: View {
                     .frame(width: 320, height: 320)
                     .border(Color.black, width: 1)
                 ArryBoard3
+                    .offset(x: 0, y: -50)
             }
         }
     }
