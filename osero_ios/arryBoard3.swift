@@ -196,6 +196,7 @@ struct arryBoard3: View {
                                 }
                                 
                             }
+                            //viewができた後↓
                         }.alert(isPresented: $showingAlert) {
                             Alert(title: Text("勝負アリ"))
                         }
