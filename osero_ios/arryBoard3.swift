@@ -143,6 +143,8 @@ struct arryBoard3: View {
                                         }
                                         //************
                                         if(passArry.count < 1){
+                                            result = "パス"
+                                            self.showingAlert = true
                                             passArry = []
                                             turn = 3 - turn
                                             // 黄色リセット
