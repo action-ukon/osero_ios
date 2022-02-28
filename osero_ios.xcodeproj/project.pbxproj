@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E110112127B01679006E5597 /* arryBoard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110112027B01679006E5597 /* arryBoard2.swift */; };
 		E110112527B2A86A006E5597 /* arryBoard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110112427B2A86A006E5597 /* arryBoard3.swift */; };
 		E110112727B2A8B4006E5597 /* topView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110112627B2A8B4006E5597 /* topView.swift */; };
-		E162D0CB27A58E8100707369 /* arryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162D0CA27A58E8100707369 /* arryBoard.swift */; };
 		E1CBBF00278F11AF008E3002 /* osero_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */; };
 		E1CBBF02278F11AF008E3002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBBF01278F11AF008E3002 /* ContentView.swift */; };
 		E1CBBF04278F11B1008E3002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CBBF03278F11B1008E3002 /* Assets.xcassets */; };
@@ -18,10 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E110112027B01679006E5597 /* arryBoard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arryBoard2.swift; sourceTree = "<group>"; };
 		E110112427B2A86A006E5597 /* arryBoard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arryBoard3.swift; sourceTree = "<group>"; };
 		E110112627B2A8B4006E5597 /* topView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topView.swift; sourceTree = "<group>"; };
-		E162D0CA27A58E8100707369 /* arryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arryBoard.swift; sourceTree = "<group>"; };
 		E1CBBEFC278F11AF008E3002 /* osero_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = osero_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osero_iosApp.swift; sourceTree = "<group>"; };
 		E1CBBF01278F11AF008E3002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,8 +57,6 @@
 			children = (
 				E1CBBEFF278F11AF008E3002 /* osero_iosApp.swift */,
 				E1CBBF01278F11AF008E3002 /* ContentView.swift */,
-				E162D0CA27A58E8100707369 /* arryBoard.swift */,
-				E110112027B01679006E5597 /* arryBoard2.swift */,
 				E110112427B2A86A006E5597 /* arryBoard3.swift */,
 				E110112627B2A8B4006E5597 /* topView.swift */,
 				E1CBBF03278F11B1008E3002 /* Assets.xcassets */,
@@ -149,10 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E162D0CB27A58E8100707369 /* arryBoard.swift in Sources */,
 				E1CBBF02278F11AF008E3002 /* ContentView.swift in Sources */,
 				E1CBBF00278F11AF008E3002 /* osero_iosApp.swift in Sources */,
-				E110112127B01679006E5597 /* arryBoard2.swift in Sources */,
 				E110112527B2A86A006E5597 /* arryBoard3.swift in Sources */,
 				E110112727B2A8B4006E5597 /* topView.swift in Sources */,
 			);
